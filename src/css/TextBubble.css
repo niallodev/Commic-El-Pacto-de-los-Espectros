@@ -1,0 +1,232 @@
+
+  /* Estilo general */
+  .bubble {
+    position: absolute;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    background: rgba(255, 255, 255, 0.747);
+    border: 2px solid black;
+    /* font-family: 'Times New Roman', Times, serif; */
+    line-height: 1; /* 1.5 - 1.75 según preferencia */
+    z-index: 10;
+  }
+  
+  
+  /* Burbujas específicas */
+  /* 2. Rectangular básica /*!Funciona */
+  .bubble.rect {
+    position: absolute;
+    border-radius: 10px;
+    width: 150px;
+    box-shadow: 3px 3px 0px black;
+  }
+  .bubble.rect::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    /* Por si acaso le ponemos un valor por defecto pero igual no lo usa ya que si o si le tenemos que pasar las variables */
+    background-color: var(--bubble-bg-color); /* Color dinámico */
+    clip-path: var(--clip-path); /* Clip-path dinámico */
+    bottom: var(--bubble-bottom-offset) !important; /* Offset dinámico */
+    transform: translateY(var(--bubble-bottom-transformY))
+               translateX(var(--bubble-bottom-transformX)) !important;
+    left: var(--bubble-left-offset); /* Offset dinámico */
+    transform: var(--bubble-giro); /* Giro dinámico */
+  }
+
+  /* se encuentra en el panel descripction  */
+  .description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 14px;
+    width:100%;
+  }
+  .description span{
+    margin: 0 auto;
+    
+  }
+
+  /* .sfx {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+      display: inline-block;
+      padding: 50px;
+      background: linear-gradient(135deg, #ff007f, #ffdb00);
+      clip-path: polygon(
+        10% 0%, 90% 0%, 100% 25%, 85% 30%, 
+        100% 50%, 85% 55%, 100% 75%, 90% 100%, 
+        10% 100%, 0% 75%, 15% 70%, 0% 50%, 
+        15% 40%, 0% 20%
+      );
+      box-shadow: 10px 10px 0px #000;
+  } */
+
+  /* .sfx::before {
+    content: '';
+      position: absolute;
+      background: radial-gradient(circle, #ff007f, #ff5500);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      top: -15px;
+      left: -20px;
+      box-shadow: 5px 5px 0px #000;
+  }
+
+  .sfx::after {
+    content: '';
+      position: absolute;
+      background: radial-gradient(circle, #ff5500, #990000);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      top: 130%;
+      left: 55%;
+      transform: translateX(-50%);
+      box-shadow: 2px 2px 0px #000;
+  } */
+
+  .sfx_span{
+    position: absolute;
+    top: var(--sfx-top);
+    left: var(--sfx-left);
+    /* width: 100%; */
+    /* height: 100%; */
+    display: flex;
+    color: var(--sfx-color);
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+    text-shadow: -0.5px -0.5px 0px #000, 2px 2px 0px var(--sfx-borde), 4px 4px 0px #000;  
+    transform: rotate(var(--sfx-giro));
+    
+  }
+
+  /* .sfx_span span {
+    display: inline-block;
+    transform: rotate(var(--sfx-giro));
+    border-radius: 10px;
+    
+  } */
+
+
+  
+    
+  
+  @media(max-width: 850px){  
+    /* 2. Rectangular básica /*!Funciona */
+    .description{
+      font-size: 13px;
+    }
+
+    .sfx_span{
+      font-size: 17px;
+    }
+     .bubble.rect {
+      font-size: 13px;
+      width: 120px;
+    }
+  }
+  @media(max-width: 750px){
+    /* 2. Rectangular básica /*!Funciona */
+    .description{
+      font-size: 12px;
+    }
+    .sfx_span{
+      font-size: 16px;
+    }
+    .bubble.rect {
+      font-size: 12px;
+      width: 110px;
+      
+    }
+  }
+  
+  @media(max-width: 650px){
+    /* 2. Rectangular básica /*!Funciona */
+    .description{
+      font-size: 12px;
+    }
+    .sfx_span{
+      font-size: 15px;
+    }
+    .bubble.rect {
+      font-size: 11px;
+      width: 110px;
+    }
+    
+   
+  }
+  @media(max-width: 550px){
+    .description{
+      font-size: 10px;
+    }
+    .sfx_span{
+      font-size: 14px;
+    }
+    .bubble.rect {
+      font-size: 10px;
+      width: 100px;
+      
+    }
+  }
+  @media(max-width: 510px){
+    .bubble {
+      padding: 5px;
+    }
+    
+    /* 2. Rectangular básica /*!Funciona */
+    .bubble.rect {
+      width: 90px;
+      
+  
+    }
+   
+  }
+  @media(max-width: 470px){
+   
+    /* 2. Rectangular básica /*!Funciona */
+    .bubble.rect {
+      font-size: 9px;
+      width: 80px;
+      
+    }
+    .sfx_span{
+      font-size: 13px;
+    }
+   
+  }
+  @media(max-width: 450px){
+   
+    .bubble {
+      padding: 2px;
+      border: 0.5px solid black;
+    }
+    /* 2. Rectangular básica /*!Funciona */
+    .sfx_span{
+      font-size: 12px;
+    }
+    .bubble.rect {
+      font-size: 6px;
+      width: 75px;
+      /* color: red; */
+      box-shadow: 1px 1px 0px black;
+    }
+    .bubble.rect::after {
+      content: "";
+      position: absolute;
+      
+      width: 10px;
+      height: 15px;
+    }
+  
+  
+   
+  }
+  /*! 245 */

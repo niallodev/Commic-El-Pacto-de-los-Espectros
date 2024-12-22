@@ -1,0 +1,246 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: white;
+  /* font-family: "Comic Sans MS", sans-serif; */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  gap: 15px;
+}
+
+.header-title h1 {
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.header-navigation {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  background-color: #ff6f61;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Times New Roman', Times, serif;
+  transition: transform 0.2s ease-in-out, background-color 0.3s;
+}
+
+.nav-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.nav-button:hover:not(:disabled) {
+  background-color: #ff4f41;
+  transform: scale(1.1);
+}
+
+.page-info {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.page-info div{
+  margin: 0 4px;
+  width: 70px;
+  /* display: inline-block; */
+  /* display:; */
+}
+
+.header-menu .menu-button {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-button:hover {
+  transform: rotate(90deg);
+}
+
+/* Menu hamburguesa */
+.header-menu {
+  color: rgb(53, 40, 40);
+  position: relative;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.menu-options {
+  position: absolute;
+  top: 40px; /* Ajusta según el tamaño del botón */
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu-options ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.menu-options li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.menu-options li:hover {
+  background: #f0f0f0;
+}
+
+/* Modales */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #fff;
+  color: #2c1b1b;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.close-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  background: #e74c3c;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background: #c0392b;
+}
+
+.chapters-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+  overflow-y: scroll;
+  
+  max-height: 400px;
+}
+
+.sub-Informacion,
+.content-Informacion{
+  margin: 1px;
+}
+
+
+.chapter-card {
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.chapter-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.chapter-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.chapter-title {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+
+
+
+
+@media (max-width:700px){
+
+  .header-title h1 {
+    font-size: 30px;
+  }
+  .page-info div{
+    margin: 0 4px;
+    width: 65px;
+  }
+  
+}
+@media (max-width:500px){
+
+  .header-title h1 {
+    font-size: 25px;
+  }
+  .nav-button, .page-info{
+    font-size: 14px;
+  }
+}
+@media (max-width:450px){
+
+  .header-title h1 {
+    font-size: 20px;
+  }
+  .nav-button, .page-info{
+    font-size: 12px;
+  }
+  .header-container, .header-navigation{
+    gap: 5px;
+
+  }
+}
+@media (max-width:400px){
+
+  .header-title h1 {
+    font-size: 18px;
+  }
+  .nav-button, .page-info{
+    font-size: 10px;
+  }
+  .header-container, .header-navigation{
+    gap: 5px;
+
+  }
+}
+/*! 239 */

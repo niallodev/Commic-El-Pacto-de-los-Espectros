@@ -1,0 +1,249 @@
+
+  /* Estilo general */
+  .bubble {
+    position: absolute;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    background: rgba(255, 255, 255, 0.747);
+    border: 2px solid black;
+    /* font-family: 'Times New Roman', Times, serif; */
+    line-height: 1; /* 1.5 - 1.75 según preferencia */
+    z-index: 10;
+  }
+  
+  
+  /* Burbujas específicas */
+  
+  /* 1. Burbujas de pensamiento (nube) */
+  
+  /* Burbujas para pensamientos (forma de nube) */
+  .bubble.thought {
+    max-width: 150px;
+    border-radius: 50%;
+    position: absolute;
+    padding: 15px;
+    box-shadow: 3px 3px 0px black;
+  }
+  
+  .bubble.thought::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    /* bottom: -25px;
+    left: 20px; */
+    bottom: var(--bubble-bottom-offset-after);
+    left: var(--bubble-left-offset-after);
+  }
+  .bubble.thought::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    /* bottom: -40px;
+    left: 10px; */
+    bottom: var(--bubble-bottom-offset-before);
+    left: var(--bubble-left-offset-before);
+  }
+  
+  
+  /* 2. Rectangular básica /*!Funciona */
+  .bubble.rect {
+    position: absolute;
+    border-radius: 10px;
+    width: 150px;
+    box-shadow: 3px 3px 0px black;
+  }
+  .bubble.rect::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    /* Por si acaso le ponemos un valor por defecto pero igual no lo usa ya que si o si le tenemos que pasar las variables */
+    background-color: var(--bubble-bg-color); /* Color dinámico */
+    clip-path: var(--clip-path); /* Clip-path dinámico */
+    bottom: var(--bubble-bottom-offset) !important; /* Offset dinámico */
+    transform: translateY(var(--bubble-bottom-transformY))
+               translateX(var(--bubble-bottom-transformX)) !important;
+    left: var(--bubble-left-offset); /* Offset dinámico */
+    transform: var(--bubble-giro); /* Giro dinámico */
+  }
+  /* .bubble.rect::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    background-color: black; */
+    /* border: 2px solid black; */
+    /* clip-path: polygon( */
+      /* 0% 0%, Punto superior izquierda */
+      /* 90% 0%, Punto superior derecho */
+      /* 100% 100% Punto inferior derecho */
+    /* );
+    bottom: -35px;
+    left: 120px;
+  } */
+  
+  
+  /* 3. Estallido (explosión) */
+  .bubble.burst {
+    position: absolute;
+    max-width: 150px;
+    width: auto;
+    height: auto;
+    margin: 15px;
+    padding: 50px;
+    
+  }
+  .bubble.burst::before {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white; /* Color del borde */
+    clip-path: polygon(
+      50% 0%,    /* Punta superior */
+      55% 10%,   /* Primera curva interna */
+      65% 5%,    /* Punta externa 1 */
+      60% 15%,   /* Segunda curva interna */
+      80% 5%,   /* Punta externa 2 */
+      70% 25%,   /* Tercera curva interna */
+      90% 20%,   /* Punta externa 3 */
+      75% 40%,   /* Cuarta curva interna */
+      100% 45%,  /* Punta externa derecha */
+      75% 60%,   /* Quinta curva interna */
+      90% 74%,   /* Punta externa 4 */
+      70% 75%,   /* Sexta curva interna */
+      80% 95%,   /* Punta externa 5 */
+      60% 75%,   /* Séptima curva interna */
+      65% 100%,   /* Punta externa inferior derecha */
+      55% 75%,   /* Octava curva interna */
+      50% 100%,  /* Punta inferior */
+      45% 75%,   /* Novena curva interna */
+      35% 95%,   /* Punta externa inferior izquierda */
+      40% 70%,   /* Décima curva interna */
+      20% 85%,   /* Punta externa 6 */
+      30% 70%,   /* Undécima curva interna */
+      10% 75%,   /* Punta externa 7 */
+      25% 55%,   /* Duodécima curva interna */
+      0% 50%,    /* Punta externa izquierda */
+      25% 40%,   /* Decimotercera curva interna */
+      10% 30%,   /* Punta externa 8 */
+      30% 25%,   /* Decimocuarta curva interna */
+      25% 15%,   /* Punta externa superior izquierda */
+      35% 15%,   /* Última curva interna */
+      35% 0%,    /* Punta externa superior izquierda */
+      45% 10%    /* Última curva interna */
+  );
+  transform: scale(1.1);
+  z-index: 1;
+   
+    
+  }
+  
+  /* Figura interna */
+  .bubble.burst {
+  
+    background-color: rgba(0, 0, 0, 0.452); /* Color de la figura */
+    clip-path: polygon(
+      50% 0%, 55% 10%, 65% 5%, 60% 15%, 80% 5%, 70% 25%, 
+      90% 20%, 75% 40%, 100% 45%, 75% 60%, 90% 74%, 70% 75%, 
+      80% 95%, 60% 75%, 65% 100%, 55% 75%, 50% 100%, 45% 75%, 
+      35% 95%, 40% 70%, 20% 85%, 30% 70%, 10% 75%, 25% 55%, 
+      0% 50%, 25% 40%, 10% 30%, 30% 25%, 25% 15%, 35% 15%, 
+      35% 0%, 45% 10%
+    );
+    z-index: 2;
+  }
+  
+  @media(max-width: 850px){  
+    /* 2. Rectangular básica /*!Funciona */
+     .bubble.rect {
+      font-size: 13px;
+      width: 120px;
+    }
+  }
+  @media(max-width: 750px){
+    /* 2. Rectangular básica /*!Funciona */
+    .bubble.rect {
+      font-size: 12px;
+      width: 110px;
+      
+    }
+  }
+  
+  @media(max-width: 650px){
+    /* 2. Rectangular básica /*!Funciona */
+    .bubble.rect {
+      font-size: 11px;
+      width: 110px;
+    }
+    
+   
+  }
+  @media(max-width: 550px){
+    .bubble.rect {
+      font-size: 10px;
+      width: 100px;
+      
+    }
+  }
+  @media(max-width: 510px){
+    .bubble {
+      padding: 5px;
+    }
+    
+    /* 2. Rectangular básica /*!Funciona */
+    .bubble.rect {
+      font-size: 10px;
+      width: 90px;
+      
+  
+    }
+   
+  }
+  @media(max-width: 470px){
+   
+    /* 2. Rectangular básica /*!Funciona */
+    .bubble.rect {
+      font-size: 9px;
+      width: 80px;
+      
+    }
+   
+  }
+  @media(max-width: 450px){
+   
+    .bubble {
+      padding: 2px;
+      border: 0.5px solid black;
+    }
+    /* 2. Rectangular básica /*!Funciona */
+    .bubble.rect {
+      font-size: 6px;
+      width: 75px;
+      /* color: red; */
+      box-shadow: 1px 1px 0px black;
+    }
+    .bubble.rect::after {
+      content: "";
+      position: absolute;
+      
+      width: 10px;
+      height: 15px;
+    }
+  
+  
+   
+  }
+  /*! 245 */
