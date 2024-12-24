@@ -115,7 +115,7 @@ const Header:React.FC<HeaderPropos> = ({title, currentPage, totalPages, onPrevio
               <p className="content-Informacion">
               <ul>
                 <li><strong>Frontend:</strong> HTML, CSS, TypeScript</li>
-                <li><strong>Framework:</strong> React</li>
+                <li><strong>Biblioteca:</strong> React</li>
                 <li><strong>Generación de Ilustraciones:</strong> Leonardo.ai</li>
                 <li><strong>Herramientas de Colaboración:</strong> Git, GitHub</li>
               </ul>
